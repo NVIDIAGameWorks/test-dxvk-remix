@@ -73,7 +73,7 @@ jobs:
     - name: Copy Bridge
       shell: pwsh
       run: |
-        Copy-Item -Recurse -Path bridge\_output -Destination _output
+        Copy-Item -Recurse -Path bridge\_output\* -Destination _output\ -Force
 
     - name: Upload x86 binaries
       uses: actions/upload-artifact@v4
@@ -88,3 +88,4 @@ jobs:
           _output\.trex\*.dll
           _output\.trex\*.exe
           _output\.trex\*.pdb
+          _output\.trex\usd\*
