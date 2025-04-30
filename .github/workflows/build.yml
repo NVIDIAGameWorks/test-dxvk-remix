@@ -5,6 +5,17 @@ on:
     branches: [ main, 'release/**' ]
   pull_request:
     branches: [ main, 'release/**' ]
+  workflow_dispatch:
+    inputs:
+      build-flavour:
+        description: 'Build configuration'
+        required: true
+        default: 'release'
+        type: choice
+        options:
+          - debug
+          - debugoptimized
+          - release
 
 jobs:
   build-windows:
